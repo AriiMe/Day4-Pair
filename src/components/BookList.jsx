@@ -1,13 +1,23 @@
 import React from "react"
 import App from "../App.js"
-import { Container, Row, Col, Form } from "react-bootstrap"
+import { Container, Row, Col, Form, Modal } from "react-bootstrap"
 import fantasyBooks from "../data/fantasy.json"
 import SingleBook from "./SingleBookAdvanced"
+import Comments from './Async'
+import CommentForm from './commentArea'
 
 class BookList extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = { books: props.BookList, queryL: 0 }
+		this.state = { books: props.BookList, queryL: 0, isModalOpen: false }
+	}
+
+	onModalOpen = () => {
+		this.setState({isModalOpen: true})
+	}
+
+	onModalClose = () => {
+		this.setState({isModalOpen: false})
 	}
 
 	render = (props) => {
@@ -39,11 +49,13 @@ class BookList extends React.Component {
 					<Row>
 						{this.state.books.map((book, index) => (
 							<Col md={4}>
-								<SingleBook book={book} />
+								<SingleBook book={book} onModalOpen={this.onModalOpen} isModalOpen={this.state.isModalOpen} />
+
 							</Col>
 						))}
 					</Row>
 				</Container>
+				<Modal show={this.state.isModalOpen} onHide={this.onModalClose}><Comments></Comments><CommentForm></CommentForm></Modal>
 			</>
 		)
 	}

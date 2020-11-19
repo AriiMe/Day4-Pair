@@ -58,7 +58,7 @@ class CommentForm extends React.Component {
                                     name="name"
                                     id="name"
                                    
-                                    value={this.state.comments.author}
+                                    // value={this.state.comments.author}
                                     onChange={this.updateCommentField}
                                     required
                                 />
@@ -74,7 +74,7 @@ class CommentForm extends React.Component {
                                     author="comment"
                                     id="comment"
                                     
-                                    value={this.state.comments.comment}
+                                    // value={this.state.comments.comment}
                                     onChange={this.updateCommentField}
                                 />
                             </Form.Group>
