@@ -1,6 +1,8 @@
 import React from "react"
 import App from "../App.js"
-import { Badge, Card } from "react-bootstrap"
+import { Badge, Card, Modal } from "react-bootstrap"
+import Comments from './Async'
+import CommentForm from './commentArea'
 
 class SingleBook extends React.Component {
 	constructor(props) {
@@ -22,6 +24,8 @@ class SingleBook extends React.Component {
 				<Card.Footer>
 					<Badge variant="success">{this.props.book.price} $$</Badge>
 				</Card.Footer>
+			<Modal show={this.state.selected} ><Comments></Comments><CommentForm></CommentForm></Modal>
+			
 			</Card>
 		)
 	}
