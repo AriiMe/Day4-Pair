@@ -9,7 +9,7 @@ class SingleBook extends React.Component {
 		return (
 			<Card
 				bg={this.props.isModalSelected ? "primary" : "light"}
-				onClick={() => this.props.onModalOpen() }
+			 
 			>
 				<Card.Img variant="top" src={this.props.book.img} />
 				<Card.Body>
